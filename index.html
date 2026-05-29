@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BelegNest - Dein sicherer Platz fuer jeden Beleg | Digitale Beleg-Archivierung mit OCR</title>
+  <meta name="description" content="BelegNest: Digitale Beleg-Archivierung mit automatischer OCR-Texterkennung, Garantie-Tracker und Volltextsuche. Free & Pro. Jetzt starten.">
+  <meta name="keywords" content="beleg archivieren, digitale belege, quittung scannen, ocr texterkennung, garantie tracker, beleg verwaltung, belegnest">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="WAMOCON GmbH">
+  <meta name="theme-color" content="#8f6a3f">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="app-icon-light.svg">
+  <link rel="canonical" href="https://belegbox.vercel.app/">
+
+  <meta property="og:title" content="BelegNest - Dein sicherer Platz fuer jeden Beleg">
+  <meta property="og:description" content="Digitale Beleg-Archivierung mit OCR, Garantie-Tracker, Volltextsuche und ZIP-Export. Free & Pro. WAMOCON GmbH.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="BelegNest">
+  <meta property="og:image" content="app-icon-light.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BelegNest - Digitale Beleg-Archivierung mit OCR">
+  <meta name="twitter:description" content="Automatische OCR-Texterkennung, Garantie-Tracker mit Ampelsystem und Volltextsuche. Free & Pro-Tarif. Jetzt starten.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BelegNest",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Digitale Beleg-Archivierung mit automatischer OCR-Texterkennung, Garantie-Tracker, Volltextsuche, ZIP-Export und Free/Pro-Tarifsystem.",
+    "offers": [
+      {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free-Tarif"},
+      {"@type": "Offer", "name": "Pro", "priceCurrency": "EUR", "description": "Pro-Tarif"}
+    ],
+    "author": {"@type": "Organization", "name": "WAMOCON GmbH"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Wie funktioniert die OCR-Texterkennung?", "acceptedAnswer": {"@type": "Answer", "text": "BelegNest nutzt Tesseract.js fuer browser-basierte OCR-Texterkennung mit automatischer Datenextraktion direkt im Browser - keine Cloud erforderlich."}},
+      {"@type": "Question", "name": "Was ist der Garantie-Tracker?", "acceptedAnswer": {"@type": "Answer", "text": "Der Garantie-Tracker zeigt mit einem Ampelsystem (Gruen, Gelb, Rot) den Status jeder Garantie an und warnt rechtzeitig vor ablaufenden Fristen."}},
+      {"@type": "Question", "name": "Welche Export-Optionen gibt es?", "acceptedAnswer": {"@type": "Answer", "text": "BelegNest bietet ZIP-Export (Fotos und CSV) sowie JSON-Backup und JSON-Import zur Datensicherung."}},
+      {"@type": "Question", "name": "Gibt es einen Free-Tarif?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. BelegNest bietet ein Free/Pro-Tarifsystem mit konfigurierbaren Limits."}}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      --color-bg: #f5f5f7;
+      --color-bg-alt: #eeeef0;
+      --color-surface: #ffffff;
+      --color-border: rgba(0,0,0,.08);
+      --color-border-hover: rgba(0,0,0,.14);
+      --color-border-accent: rgba(143,106,63,.18);
+      --color-accent: #8f6a3f;
+      --color-accent-dim: #6e5030;
+      --color-accent-soft: rgba(143,106,63,.06);
+      --color-text-main: #111113;
+      --color-muted: #555558;
+      --color-faint: #8e8e93;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-main); }
+  </style>
+</head>
+
+<body class="overflow-x-hidden antialiased leading-relaxed">
+  <div class="gradient-orbs" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+
+  <div class="fixed top-0 left-0 right-0 z-[60] overflow-hidden" style="height:48px;background:#0a0a0c;border-bottom:1px solid rgba(143,106,63,.25);">
+    <div style="display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 18s linear infinite;">
+      <span class="ticker-item">BELEGNEST &mdash; Dein sicherer Platz fuer jeden Beleg. OCR. Garantie-Tracker. Free &amp; Pro.</span>
+      <span class="ticker-item">BELEGNEST &mdash; Dein sicherer Platz fuer jeden Beleg. OCR. Garantie-Tracker. Free &amp; Pro.</span>
+      <span class="ticker-item">BELEGNEST &mdash; Dein sicherer Platz fuer jeden Beleg. OCR. Garantie-Tracker. Free &amp; Pro.</span>
+      <span class="ticker-item">BELEGNEST &mdash; Dein sicherer Platz fuer jeden Beleg. OCR. Garantie-Tracker. Free &amp; Pro.</span>
+    </div>
+  </div>
+
+  <nav class="fixed top-[48px] left-0 right-0 z-50 h-16 flex items-center transition-all duration-400" id="nav">
+    <div class="w-full max-w-[1100px] mx-auto px-5 md:px-10 flex items-center justify-between">
+      <a href="#" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="text-decoration:none;">
+        <img src="app-icon-light.svg" alt="BelegNest Icon" style="width:28px;height:28px;">
+        <span style="font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;color:#8f6a3f;">BelegNest</span>
+      </a>
+      <div class="hidden md:flex items-center gap-4">
+        <div class="nav-links-pill">
+          <a href="#problem" class="nav-link" data-nav-section="problem">Problem</a>
+          <a href="#warum" class="nav-link" data-nav-section="warum">Vorteile</a>
+          <a href="#funktionen" class="nav-link" data-nav-section="funktionen">Funktionen</a>
+          <a href="#process" class="nav-link" data-nav-section="process">Prozess</a>
+          <a href="#ablauf" class="nav-link" data-nav-section="ablauf">So geht's</a>
+          <a href="#faq" class="nav-link" data-nav-section="faq">FAQ</a>
+        </div>
+        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;background:#8f6a3f;color:#fff;font-size:.8rem;font-weight:700;border-radius:999px;text-decoration:none;">Zur App</a>
+        <div class="flex items-center gap-2 text-sm font-semibold" style="color:var(--color-muted);background:rgba(255,255,255,0.05);padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);">
+          <a href="index.html" style="color:#8f6a3f;text-decoration:none;">DE</a>
+          <span style="opacity:0.3">|</span>
+          <a href="index.en.html" class="hover:text-white transition-colors" style="text-decoration:none;">EN</a>
+        </div>
+      </div>
+      <button class="nav-hamburger md:hidden" id="navHamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" aria-hidden="true">
+    <button style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;" onclick="closeMobileMenu()">&times;</button>
+    <div class="mm-brand">BelegNest</div>
+    <div class="mm-grid">
+      <a href="#problem" class="mm-link" onclick="closeMobileMenu()">Problem</a>
+      <a href="#warum" class="mm-link" onclick="closeMobileMenu()">Vorteile</a>
+      <a href="#funktionen" class="mm-link" onclick="closeMobileMenu()">Funktionen</a>
+      <a href="#process" class="mm-link" onclick="closeMobileMenu()">Prozess</a>
+      <a href="#ablauf" class="mm-link" onclick="closeMobileMenu()">So geht's</a>
+      <a href="#faq" class="mm-link" onclick="closeMobileMenu()">FAQ</a>
+      <a href="#final-cta" class="mm-link" onclick="closeMobileMenu()">Starten</a>
+    </div>
+    <div style="margin-top:2rem;display:flex;justify-content:center;gap:1.5rem;font-size:1.2rem;font-weight:700;">
+      <a href="index.html" style="color:#8f6a3f;text-decoration:none;">DE</a>
+      <span style="color:var(--color-border);">|</span>
+      <a href="index.en.html" style="color:var(--color-muted);text-decoration:none;">EN</a>
+    </div>
+  </div>
+
+  <section class="relative flex items-center justify-center overflow-hidden pt-[160px] pb-[130px]" id="hero">
+    <canvas id="heroParticles" class="absolute inset-0 z-[1]"></canvas>
+    <div class="absolute inset-0 z-0" style="background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(143,106,63,.09)0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 80%,rgba(143,106,63,.05)0%,transparent 50%),radial-gradient(ellipse 45% 50% at 80% 25%,rgba(95,127,116,.07)0%,transparent 50%);"></div>
+    <div class="absolute inset-0 z-0 opacity-[.06]" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,black 0%,transparent 70%);"></div>
+
+    <div class="relative z-10 text-center max-w-[960px] px-5">
+      <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7" style="background:rgba(143,106,63,.12);border:1px solid rgba(143,106,63,.35);">
+        <img src="app-icon-light.svg" alt="BelegNest" style="width:16px;height:16px;">
+        <span style="font-size:.8rem;font-weight:700;color:#a07843;letter-spacing:.06em;text-transform:uppercase;">OCR-Texterkennung. Garantie-Tracker. Free &amp; Pro.</span>
+      </div>
+
+      <h1 class="reveal text-3xl md:text-7xl lg:text-8xl font-bold leading-[1.08] tracking-tight mb-6">
+        Dein sicherer Platz.<br><span class="gradient-text">Fuer jeden Beleg.</span>
+      </h1>
+      <p class="reveal text-lg md:text-xl max-w-[680px] mx-auto leading-relaxed" style="color:var(--color-muted);">
+        BelegNest archiviert deine Belege digital mit automatischer OCR-Texterkennung, Volltextsuche, Garantie-Tracker und ZIP-Export &mdash; sicher in der Cloud, einfach im Browser.
+      </p>
+
+      <div class="reveal mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;background:#8f6a3f;color:#fff;font-size:.95rem;font-weight:700;border-radius:12px;text-decoration:none;transition:all .25s ease;box-shadow:0 4px 24px rgba(143,106,63,.3);">App starten</a>
+      </div>
+
+      <p class="reveal mt-5 text-sm" style="color:#8e8e93;">Kamera &amp; Upload. Volltext-Suche. Bilingual (DE/EN). Dunkel/Hell-Modus.</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[120px] z-20" style="background:linear-gradient(to bottom, transparent, #0f1117);"></div>
+  </section>
+
+  <section class="relative section-dark" id="problem" style="padding:6.5rem 0 5rem;margin-top:-2px;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <h2 class="reveal text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6" style="color:#f0f0f2;">
+        Belege gehen verloren &mdash;<br><span style="color:#8f6a3f;">Garantien werden verpasst.</span>
+      </h2>
+      <p class="reveal text-lg max-w-[620px] leading-relaxed mb-16" style="color:#9a9aaa;">BelegNest schafft digitale Ordnung: automatische OCR-Texterkennung, strukturiertes Archiv mit Volltextsuche und ein Garantie-Tracker mit Ampelsystem, der ablaufende Fristen rechtzeitig anzeigt.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
+          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#8f6a3f;" data-target="6" data-separator=".">0</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Erweiterte Belegattribute</span>
+          <span class="block text-xs" style="color:#7a7a88;">Zahlungsart, Steuersatz, Tags, Belegnummer, Filialdaten, Waehrung</span>
+        </div>
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
+          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#8f6a3f;" data-target="3" data-suffix="x">0</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Garantie-Ampelfarben</span>
+          <span class="block text-xs" style="color:#7a7a88;">Garantie-Tracker mit Ampelsystem: Gruen, Gelb, Rot</span>
+        </div>
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
+          <span class="block text-xs font-semibold mb-2 uppercase tracking-[0.12em]" style="color:#a07843;">Free &amp;</span>
+          <span class="block stat-value font-black leading-none mb-1 tabular-nums" style="color:#8f6a3f;" data-target="1" data-suffix=" Pro">0</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Tarifstufen</span>
+          <span class="block text-xs" style="color:#7a7a88;">Free/Pro-Tarifsystem mit konfigurierbaren Limits</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 section-dark" id="warum" style="background:#050508;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-14">
+        <h2 class="reveal text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-5" style="color:#f0f0f2;">Warum BelegNest</h2>
+        <p class="reveal text-lg max-w-[650px] mx-auto leading-relaxed" style="color:#9999a1;">Vier klare Vorteile fuer digitale Beleg-Archivierung mit OCR, Garantie-Tracker und strukturierter Verwaltung.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Automatische OCR-Texterkennung</h3>
+          <p style="color:#9a9aaa;">Tesseract.js erkennt Text auf Belegen direkt im Browser mit automatischer Datenextraktion &mdash; ohne externe Cloud.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Garantie-Tracker mit Ampelsystem</h3>
+          <p style="color:#9a9aaa;">Gruen, Gelb, Rot: BelegNest zeigt rechtzeitig an, welche Garantien bald ablaufen &mdash; kein Ablaufdatum mehr verpassen.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Archiv mit Volltextsuche</h3>
+          <p style="color:#9a9aaa;">Volltext-Suche, Kategorie-, Datums- und Betragsfilter sowie Sortierung machen jeden Beleg in Sekunden findbar.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Kamera, Upload &amp; Export</h3>
+          <p style="color:#9a9aaa;">Beleg-Erfassung per Kamera oder Datei-Upload mit Auto-Komprimierung. ZIP-Export (Fotos &amp; CSV) und JSON-Backup/Import.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="funktionen" class="py-24 section-alt">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-14">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Kernfunktionen fuer digitale Ordnung</h2>
+        <p class="reveal text-lg max-w-[680px] mx-auto" style="color:var(--color-muted);">Alle Funktionen aus dem BelegNest-Feature-Set in einer klaren, alltagstauglichen Webanwendung.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Beleg-Erfassung per Kamera &amp; Upload</h3>
+          <p style="color:var(--color-muted);">Beleg-Erfassung per Kamera oder Datei-Upload mit automatischer Auto-Komprimierung fuer optimale Speichergroesse.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Automatische OCR-Texterkennung</h3>
+          <p style="color:var(--color-muted);">Automatische OCR-Texterkennung via Tesseract.js mit Datenextraktion direkt im Browser &mdash; vollstaendig lokal, keine externe API.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Archiv mit Volltextsuche &amp; Filtern</h3>
+          <p style="color:var(--color-muted);">Beleg-Archiv mit Volltext-Suche, Kategorie-, Datums- und Betragsfiltern sowie flexibler Sortierung.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Garantie-Tracker mit Ampelsystem</h3>
+          <p style="color:var(--color-muted);">Garantie-Tracker mit Ampelsystem (Gruen/Gelb/Rot) erkennt automatisch ablaufende Garantiefristen.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">ZIP-Export &amp; JSON-Backup</h3>
+          <p style="color:var(--color-muted);">ZIP-Export (Fotos und CSV) sowie JSON-Backup und JSON-Import fuer vollstaendige Datensicherung und -portabilitaet.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Nutzer-Authentifizierung &amp; Free/Pro</h3>
+          <p style="color:var(--color-muted);">E-Mail/Passwort-Authentifizierung mit rollenbasiertem Zugriff (Nutzer/Admin) und Free/Pro-Tarifsystem mit konfigurierbaren Limits.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" id="process" style="background:#090a0e;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-10">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">Von der Quittung zum digitalen Archiv</h2>
+        <p class="reveal text-lg max-w-[760px] mx-auto" style="color:#a2a2ab;">Das Ziel von BelegNest: jeden Beleg sicher und durchsuchbar archivieren. Der Ablauf zeigt den realen Weg vom Scan bis zur strukturierten Ablage.</p>
+      </div>
+      <div class="reveal process-shell" id="processFlow">
+        <div class="process-track">
+          <div class="process-track__bar" id="processFlowBar"></div>
+          <div class="process-track__dot" id="processFlowDot"></div>
+        </div>
+        <div class="process-grid">
+          <article class="process-step process-step--active" tabindex="0">
+            <div class="process-step__index">01</div>
+            <h3 class="process-step__title">Beleg erfassen</h3>
+            <p class="process-step__text">Beleg per Kamera oder Datei-Upload erfassen. Auto-Komprimierung optimiert die Dateigroesse automatisch.</p>
+            <p class="process-step__hint">Zum Aufklappen klicken</p>
+            <div class="process-step__more">Beleg-Erfassung via Kamera oder Datei-Upload mit automatischer Auto-Komprimierung direkt im Browser.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">02</div>
+            <h3 class="process-step__title">OCR &amp; Datenextraktion</h3>
+            <p class="process-step__text">Tesseract.js erkennt Text und extrahiert Daten automatisch &mdash; browser-basiert, keine Cloud erforderlich.</p>
+            <p class="process-step__hint">Zum Aufklappen klicken</p>
+            <div class="process-step__more">Automatische OCR-Texterkennung mit Datenextraktion. Erweiterte Attribute: Zahlungsart, Steuersatz, Tags, Belegnummer, Filialdaten, Waehrung.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">03</div>
+            <h3 class="process-step__title">Archiv &amp; Suche</h3>
+            <p class="process-step__text">Beleg-Archiv mit Volltext-Suche, Kategorie-, Datums- und Betragsfiltern sowie Sortierung.</p>
+            <p class="process-step__hint">Zum Aufklappen klicken</p>
+            <div class="process-step__more">Volltext-Suche, Kategorie-, Datums- und Betragsfilter sowie flexibles Sortieren machen jeden Beleg in Sekunden findbar.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">04</div>
+            <h3 class="process-step__title">Export &amp; Sicherung</h3>
+            <p class="process-step__text">ZIP-Export (Fotos und CSV), JSON-Backup und JSON-Import fuer vollstaendige Datensicherung.</p>
+            <p class="process-step__hint">Zum Aufklappen klicken</p>
+            <div class="process-step__more">ZIP-Export mit Fotos und CSV sowie JSON-Backup und JSON-Import &mdash; alle Daten jederzeit sicher exportierbar und importierbar.</div>
+          </article>
+        </div>
+        <p class="process-target"><strong>Ergebnis:</strong> Jeder Beleg digital erfasst, durchsuchbar archiviert und jederzeit exportierbar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" style="background:#0f1117;" id="ablauf">
+    <div class="max-w-[1000px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-12">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">So einfach geht's in 3 Schritten</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Schritt 1</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Konto erstellen</h3>
+          <p style="color:#9a9aaa;">Registrierung per E-Mail und Passwort. Benutzerauthentifizierung mit rollenbasiertem Zugriff (Nutzer/Admin).</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Schritt 2</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Belege erfassen &amp; archivieren</h3>
+          <p style="color:#9a9aaa;">Beleg per Kamera oder Upload scannen. OCR-Texterkennung extrahiert Daten automatisch ins Archiv.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Schritt 3</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Suchen, exportieren, sichern</h3>
+          <p style="color:#9a9aaa;">Volltextsuche und Filter machen jeden Beleg findbar. ZIP-Export und JSON-Backup sichern alle Daten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24" id="faq">
+    <div class="max-w-[900px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-10">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Haeufige Fragen</h2>
+      </div>
+      <div id="faqList" class="rounded-2xl bg-white border overflow-hidden">
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Wie funktioniert die OCR-Texterkennung?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BelegNest nutzt Tesseract.js fuer browser-basierte OCR-Texterkennung mit automatischer Datenextraktion &mdash; vollstaendig lokal, keine externe Cloud-API erforderlich.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Was ist der Garantie-Tracker?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Der Garantie-Tracker zeigt mit einem Ampelsystem (Gruen, Gelb, Rot) den Status jeder Garantie an und warnt rechtzeitig vor ablaufenden Fristen.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Welche Export-Optionen gibt es?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BelegNest bietet ZIP-Export (Fotos und CSV) sowie JSON-Backup und JSON-Import zur vollstaendigen Datensicherung und -portabilitaet.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Gibt es einen Free-Tarif?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Ja. BelegNest bietet ein Free/Pro-Tarifsystem mit konfigurierbaren Limits fuer unterschiedliche Nutzungsanforderungen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" id="final-cta" style="background:#050508;">
+    <div class="max-w-[900px] mx-auto px-5 md:px-10 text-center">
+      <h2 class="reveal text-3xl md:text-5xl font-black leading-[1.1] mb-5" style="color:#f0f0f2;">Dein sicherer Platz fuer jeden Beleg. Jetzt starten.</h2>
+      <p class="reveal text-lg max-w-[620px] mx-auto mb-9" style="color:#9a9aaa;">Digitale Beleg-Archivierung mit OCR, Garantie-Tracker und Volltextsuche. Free &amp; Pro.</p>
+      <div class="reveal flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;background:#8f6a3f;color:#fff;font-weight:700;border-radius:12px;text-decoration:none;">BelegNest starten</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#050508;color:#8e8e93;padding:32px 20px 40px;text-align:center;border-top:1px solid rgba(255,255,255,.08);">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <img src="app-icon-light.svg" alt="BelegNest" style="width:18px;height:18px;opacity:.85;">
+      <span style="font-weight:700;color:#f0f0f2;">BelegNest</span>
+    </div>
+    <p style="font-size:.9rem;">Dein sicherer Platz fuer jeden Beleg &mdash; WAMOCON GmbH</p>
+    <div style="margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:.85rem;">
+      <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:#c7ac82;text-decoration:none;">App oeffnen</a>
+      <a href="impressum.html" style="color:#c7ac82;text-decoration:none;">Impressum</a>
+      <a href="agb.html" style="color:#c7ac82;text-decoration:none;">AGB</a>
+      <a href="datenschutz.html" style="color:#c7ac82;text-decoration:none;">Datenschutz</a>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner__inner">
+      <h3 style="font-weight:700;font-size:1.05rem;margin-bottom:.45rem;">Hinweis zu Cookies und Datenspeicherung</h3>
+      <p style="font-size:.92rem;line-height:1.6;color:#4d4d55;">BelegNest nutzt Cookies und lokalen Browser-Speicher fuer Funktionalitaet und Sicherheit. Deine Daten werden sicher in der Cloud (Supabase) gespeichert und verarbeitet. Kein Werbe-Tracking.</p>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:1rem;flex-wrap:wrap;">
+        <button class="cookie-banner__btn cookie-banner__btn--reject" data-cookie-action="reject">Schliessen</button>
+        <button class="cookie-banner__btn cookie-banner__btn--accept" data-cookie-action="accept">Verstanden</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

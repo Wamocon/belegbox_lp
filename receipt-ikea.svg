@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#f5f5f5" rx="8"/>
+  <rect x="40" y="30" width="320" height="80" fill="#fff" rx="4" stroke="#e0e0e0"/>
+  <text x="200" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#1a1a1a">IKEA</text>
+  <text x="200" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#888">Sachsendamm 47, 10829 Berlin</text>
+  <line x1="40" y1="130" x2="360" y2="130" stroke="#ccc" stroke-dasharray="4"/>
+  <text x="50" y="160" font-family="monospace" font-size="12" fill="#444">KALLAX Regal          49,99</text>
+  <text x="50" y="180" font-family="monospace" font-size="12" fill="#444">LACK Tisch            12,99</text>
+  <text x="50" y="200" font-family="monospace" font-size="12" fill="#444">LED-Lampe E27          4,99</text>
+  <line x1="40" y1="230" x2="360" y2="230" stroke="#ccc" stroke-dasharray="4"/>
+  <text x="50" y="260" font-family="monospace" font-size="14" font-weight="bold" fill="#222">SUMME                67,97 EUR</text>
+  <text x="50" y="285" font-family="monospace" font-size="11" fill="#888">EC-Karte              67,97</text>
+  <text x="50" y="310" font-family="monospace" font-size="11" fill="#888">19% MwSt              10,85</text>
+  <line x1="40" y1="330" x2="360" y2="330" stroke="#ccc" stroke-dasharray="4"/>
+  <text x="200" y="360" text-anchor="middle" font-family="monospace" font-size="11" fill="#888">05.05.2026  11:20</text>
+  <text x="200" y="380" text-anchor="middle" font-family="monospace" font-size="11" fill="#888">Beleg-Nr: IK-2026-3345</text>
+</svg>
