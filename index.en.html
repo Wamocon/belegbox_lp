@@ -3,40 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BelegNest - Your Safe Place for Every Receipt | Digital Receipt Archiving with OCR</title>
-  <meta name="description" content="BelegNest: Digital receipt archiving with automatic OCR text recognition, warranty tracker, and full-text search. Free & Pro. Start now.">
-  <meta name="keywords" content="receipt archiving, digital receipts, receipt scanner, ocr text recognition, warranty tracker, receipt management, belegnest">
+  <title>BelegNest - Your Safe Place for Every Receipt</title>
+  <meta name="description" content="Digitize, archive, search and export receipts. Private, secure and good for the environment. Start for free.">
+  <meta name="keywords" content="receipt archiving, digital receipts, receipt scanner, warranty tracker, receipt management, belegnest">
   <meta name="robots" content="index, follow">
   <meta name="author" content="WAMOCON GmbH">
-  <meta name="theme-color" content="#8f6a3f">
+  <meta name="theme-color" content="#0D9668">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="app-icon-light.svg">
-  <link rel="canonical" href="https://belegbox.vercel.app/en">
+  <link rel="canonical" href="https://belegnest.de/en">
 
-  <meta property="og:title" content="BelegNest - Your Safe Place for Every Receipt">
-  <meta property="og:description" content="Digital receipt archiving with OCR, warranty tracker, full-text search and ZIP export. Free & Pro. WAMOCON GmbH.">
+  <meta property="og:title" content="BelegNest. Snap. Store. Rediscover.">
+  <meta property="og:description" content="Your Receipts. Safely Stored. Sustainably Managed. Free forever.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="BelegNest">
   <meta property="og:image" content="app-icon-light.svg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BelegNest - Digital Receipt Archiving with OCR">
-  <meta name="twitter:description" content="Automatic OCR text recognition, warranty tracker with traffic light system, and full-text search. Free & Pro plan. Start now.">
+  <meta name="twitter:title" content="BelegNest - Snap. Store. Rediscover.">
+  <meta name="twitter:description" content="Archive receipts digitally. Private, secure, sustainable.">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "BelegNest",
-    "applicationCategory": "BusinessApplication",
+    "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "description": "Digital receipt archiving with automatic OCR text recognition, warranty tracker, full-text search, ZIP export and Free/Pro tier system.",
-    "offers": [
-      {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free plan"},
-      {"@type": "Offer", "name": "Pro", "priceCurrency": "EUR", "description": "Pro plan"}
-    ],
+    "description": "Digitize, archive, search and export receipts. Private, secure and sustainable.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
     "author": {"@type": "Organization", "name": "WAMOCON GmbH"}
   }
   </script>
@@ -46,10 +47,10 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "How does the OCR text recognition work?", "acceptedAnswer": {"@type": "Answer", "text": "BelegNest uses Tesseract.js for browser-based OCR text recognition with automatic data extraction directly in the browser - no cloud required."}},
-      {"@type": "Question", "name": "What is the warranty tracker?", "acceptedAnswer": {"@type": "Answer", "text": "The warranty tracker uses a traffic light system (green, yellow, red) to show the status of each warranty and alerts you in time before deadlines expire."}},
-      {"@type": "Question", "name": "What export options are available?", "acceptedAnswer": {"@type": "Answer", "text": "BelegNest offers ZIP export (photos and CSV) as well as JSON backup and JSON import for complete data backup."}},
-      {"@type": "Question", "name": "Is there a free plan?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. BelegNest offers a Free/Pro tier system with configurable limits."}}
+      {"@type": "Question", "name": "Is BelegNest free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, BelegNest offers a free plan with 50 receipts and 100 MB storage. For unlimited usage, there is the Pro plan."}},
+      {"@type": "Question", "name": "How secure is my data?", "acceptedAnswer": {"@type": "Answer", "text": "Your data is stored securely in the EU. OCR text recognition runs entirely in your browser, no external cloud needed."}},
+      {"@type": "Question", "name": "What is the warranty tracker?", "acceptedAnswer": {"@type": "Answer", "text": "The warranty tracker uses a traffic light system (green, yellow, red) to show warranty status and warns you before deadlines expire."}},
+      {"@type": "Question", "name": "Is BelegNest good for the environment?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! Every digitally stored receipt saves thermal paper coated with chemicals. Good for you, good for the planet."}}
     ]
   }
   </script>
@@ -59,24 +60,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style>
-    :root {
-      --color-bg: #f5f5f7;
-      --color-bg-alt: #eeeef0;
-      --color-surface: #ffffff;
-      --color-border: rgba(0,0,0,.08);
-      --color-border-hover: rgba(0,0,0,.14);
-      --color-border-accent: rgba(143,106,63,.18);
-      --color-accent: #8f6a3f;
-      --color-accent-dim: #6e5030;
-      --color-accent-soft: rgba(143,106,63,.06);
-      --color-text-main: #111113;
-      --color-muted: #555558;
-      --color-faint: #8e8e93;
-      --font-sans: 'Inter', system-ui, sans-serif;
-    }
-    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-main); }
-  </style>
 </head>
 
 <body class="overflow-x-hidden antialiased leading-relaxed">
@@ -86,250 +69,251 @@
     <div class="orb orb--3"></div>
   </div>
 
-  <div class="fixed top-0 left-0 right-0 z-[60] overflow-hidden" style="height:48px;background:#0a0a0c;border-bottom:1px solid rgba(143,106,63,.25);">
-    <div style="display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 18s linear infinite;">
-      <span class="ticker-item">BELEGNEST &mdash; Your safe place for every receipt. OCR. Warranty Tracker. Free &amp; Pro.</span>
-      <span class="ticker-item">BELEGNEST &mdash; Your safe place for every receipt. OCR. Warranty Tracker. Free &amp; Pro.</span>
-      <span class="ticker-item">BELEGNEST &mdash; Your safe place for every receipt. OCR. Warranty Tracker. Free &amp; Pro.</span>
-      <span class="ticker-item">BELEGNEST &mdash; Your safe place for every receipt. OCR. Warranty Tracker. Free &amp; Pro.</span>
+  <!-- Ticker -->
+  <div class="fixed top-0 left-0 right-0 z-[60] overflow-hidden" style="height:48px;background:linear-gradient(90deg,#065F46,#0F766E,#065F46);border-bottom:1px solid rgba(20,184,166,.3);">
+    <div style="display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 22s linear infinite;">
+      <span class="ticker-item">BELEGNEST · Snap. Store. Rediscover. Your safe place for every receipt.</span>
+      <span class="ticker-item">BELEGNEST · Snap. Store. Rediscover. Your safe place for every receipt.</span>
+      <span class="ticker-item">BELEGNEST · Snap. Store. Rediscover. Your safe place for every receipt.</span>
+      <span class="ticker-item">BELEGNEST · Snap. Store. Rediscover. Your safe place for every receipt.</span>
     </div>
   </div>
 
+  <!-- Navigation -->
   <nav class="fixed top-[48px] left-0 right-0 z-50 h-16 flex items-center transition-all duration-400" id="nav">
     <div class="w-full max-w-[1100px] mx-auto px-5 md:px-10 flex items-center justify-between">
       <a href="#" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="text-decoration:none;">
-        <img src="app-icon-light.svg" alt="BelegNest icon" style="width:28px;height:28px;">
-        <span style="font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;color:#8f6a3f;">BelegNest</span>
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0D9668"/><path d="M14 38c0 0 6-8 18-8s18 8 18 8" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none"/><rect x="24" y="18" width="16" height="22" rx="2" fill="white" opacity=".9"/><line x1="28" y1="24" x2="36" y2="24" stroke="#0D9668" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="28" x2="36" y2="28" stroke="#0D9668" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="32" x2="33" y2="32" stroke="#0D9668" stroke-width="1.5" stroke-linecap="round"/><path d="M44 16c2-3 6-2 6 1s-4 4-6 6c-2-2-6-3-6-6s4-4 6-1z" fill="#34D399"/></svg>
+        <span style="font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;color:#0D9668;">BelegNest</span>
       </a>
       <div class="hidden md:flex items-center gap-4">
         <div class="nav-links-pill">
-          <a href="#problem" class="nav-link" data-nav-section="problem">Problem</a>
-          <a href="#warum" class="nav-link" data-nav-section="warum">Benefits</a>
-          <a href="#funktionen" class="nav-link" data-nav-section="funktionen">Features</a>
-          <a href="#process" class="nav-link" data-nav-section="process">Process</a>
-          <a href="#ablauf" class="nav-link" data-nav-section="ablauf">How it works</a>
+          <a href="#features" class="nav-link" data-nav-section="features">Features</a>
+          <a href="#nachhaltigkeit" class="nav-link" data-nav-section="nachhaltigkeit">Sustainability</a>
+          <a href="#so-gehts" class="nav-link" data-nav-section="so-gehts">How it works</a>
           <a href="#faq" class="nav-link" data-nav-section="faq">FAQ</a>
         </div>
-        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;background:#8f6a3f;color:#fff;font-size:.8rem;font-weight:700;border-radius:999px;text-decoration:none;">Open app</a>
-        <div class="flex items-center gap-2 text-sm font-semibold" style="color:var(--color-muted);background:rgba(255,255,255,0.05);padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);">
-          <a href="index.html" class="hover:text-white transition-colors" style="text-decoration:none;">DE</a>
+        <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer" class="nav-cta">Get started</a>
+        <div class="lang-switcher">
+          <a href="index.html">DE</a>
           <span style="opacity:0.3">|</span>
-          <a href="index.en.html" style="color:#8f6a3f;text-decoration:none;">EN</a>
+          <a href="index.en.html" class="lang-active">EN</a>
         </div>
       </div>
       <button class="nav-hamburger md:hidden" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
   <div id="mobileMenu" aria-hidden="true">
     <button style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;" onclick="closeMobileMenu()">&times;</button>
     <div class="mm-brand">BelegNest</div>
     <div class="mm-grid">
-      <a href="#problem" class="mm-link" onclick="closeMobileMenu()">Problem</a>
-      <a href="#warum" class="mm-link" onclick="closeMobileMenu()">Benefits</a>
-      <a href="#funktionen" class="mm-link" onclick="closeMobileMenu()">Features</a>
-      <a href="#process" class="mm-link" onclick="closeMobileMenu()">Process</a>
-      <a href="#ablauf" class="mm-link" onclick="closeMobileMenu()">How it works</a>
+      <a href="#features" class="mm-link" onclick="closeMobileMenu()">Features</a>
+      <a href="#nachhaltigkeit" class="mm-link" onclick="closeMobileMenu()">Sustainability</a>
+      <a href="#so-gehts" class="mm-link" onclick="closeMobileMenu()">How it works</a>
       <a href="#faq" class="mm-link" onclick="closeMobileMenu()">FAQ</a>
-      <a href="#final-cta" class="mm-link" onclick="closeMobileMenu()">Start</a>
+      <a href="https://belegnest.de" class="mm-link mm-link--cta" onclick="closeMobileMenu()">Get started</a>
     </div>
     <div style="margin-top:2rem;display:flex;justify-content:center;gap:1.5rem;font-size:1.2rem;font-weight:700;">
-      <a href="index.html" style="color:var(--color-muted);text-decoration:none;">DE</a>
-      <span style="color:var(--color-border);">|</span>
-      <a href="index.en.html" style="color:#8f6a3f;text-decoration:none;">EN</a>
+      <a href="index.html" style="color:rgba(255,255,255,.4);text-decoration:none;">DE</a>
+      <span style="color:rgba(255,255,255,.15);">|</span>
+      <a href="index.en.html" style="color:#14B8A6;text-decoration:none;">EN</a>
     </div>
   </div>
 
-  <section class="relative flex items-center justify-center overflow-hidden pt-[160px] pb-[130px]" id="hero">
+  <!-- ====== HERO ====== -->
+  <section class="relative flex items-center justify-center overflow-hidden pt-[160px] pb-[140px]" id="hero">
     <canvas id="heroParticles" class="absolute inset-0 z-[1]"></canvas>
-    <div class="absolute inset-0 z-0" style="background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(143,106,63,.09)0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 80%,rgba(143,106,63,.05)0%,transparent 50%),radial-gradient(ellipse 45% 50% at 80% 25%,rgba(95,127,116,.07)0%,transparent 50%);"></div>
-    <div class="absolute inset-0 z-0 opacity-[.06]" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,black 0%,transparent 70%);"></div>
+    <div class="absolute inset-0 z-0" style="background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(13,150,104,.10)0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 80%,rgba(52,211,153,.06)0%,transparent 50%),radial-gradient(ellipse 45% 50% at 80% 25%,rgba(15,118,110,.08)0%,transparent 50%);"></div>
+    <div class="absolute inset-0 z-0 opacity-[.05]" style="background-image:linear-gradient(rgba(20,184,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(20,184,166,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,black 0%,transparent 70%);"></div>
 
     <div class="relative z-10 text-center max-w-[960px] px-5">
-      <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7" style="background:rgba(143,106,63,.12);border:1px solid rgba(143,106,63,.35);">
-        <img src="app-icon-light.svg" alt="BelegNest" style="width:16px;height:16px;">
-        <span style="font-size:.8rem;font-weight:700;color:#a07843;letter-spacing:.06em;text-transform:uppercase;">OCR Text Recognition. Warranty Tracker. Free &amp; Pro.</span>
+      <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7" style="background:rgba(13,150,104,.10);border:1px solid rgba(13,150,104,.30);">
+        <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0D9668"/><path d="M14 38c0 0 6-8 18-8s18 8 18 8" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none"/><rect x="24" y="18" width="16" height="22" rx="2" fill="white" opacity=".9"/><line x1="28" y1="24" x2="36" y2="24" stroke="#0D9668" stroke-width="1.5"/><line x1="28" y1="28" x2="36" y2="28" stroke="#0D9668" stroke-width="1.5"/><line x1="28" y1="32" x2="33" y2="32" stroke="#0D9668" stroke-width="1.5"/><path d="M44 16c2-3 6-2 6 1s-4 4-6 6c-2-2-6-3-6-6s4-4 6-1z" fill="#34D399"/></svg>
+        <span style="font-size:.8rem;font-weight:700;color:#14B8A6;letter-spacing:.06em;text-transform:uppercase;">Snap. Store. Rediscover.</span>
       </div>
 
-      <h1 class="reveal text-3xl md:text-7xl lg:text-8xl font-bold leading-[1.08] tracking-tight mb-6">
-        Your safe place.<br><span class="gradient-text">For every receipt.</span>
+      <h1 class="reveal text-3xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight mb-6">
+        Your Receipts.<br>
+        <span class="gradient-text">Safely Stored.</span><br>
+        <span class="gradient-text-leaf">Sustainably Managed.</span>
       </h1>
       <p class="reveal text-lg md:text-xl max-w-[680px] mx-auto leading-relaxed" style="color:var(--color-muted);">
-        BelegNest archives your receipts digitally with automatic OCR text recognition, full-text search, warranty tracker and ZIP export &mdash; securely in the cloud, simple in the browser.
+        Digitize, archive, search and export receipts. Private, secure and good for the environment.
       </p>
 
       <div class="reveal mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;background:#8f6a3f;color:#fff;font-size:.95rem;font-weight:700;border-radius:12px;text-decoration:none;transition:all .25s ease;box-shadow:0 4px 24px rgba(143,106,63,.3);">Open app</a>
+        <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Capture Receipt Now
+        </a>
+        <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Open Receipt Archive
+        </a>
       </div>
 
-      <p class="reveal mt-5 text-sm" style="color:#8e8e93;">Camera &amp; file upload. Full-text search. Bilingual (DE/EN). Light/dark mode.</p>
+      <p class="reveal mt-5 text-sm" style="color:#78716C;">Free to start &bull; No credit card &bull; Bilingual DE/EN</p>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-[120px] z-20" style="background:linear-gradient(to bottom, transparent, #0f1117);"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-[120px] z-20" style="background:linear-gradient(to bottom, transparent, var(--color-bg));"></div>
   </section>
 
-  <section class="relative section-dark" id="problem" style="padding:6.5rem 0 5rem;margin-top:-2px;">
-    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
-      <h2 class="reveal text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6" style="color:#f0f0f2;">
-        Receipts get lost &mdash;<br><span style="color:#8f6a3f;">warranties expire unnoticed.</span>
-      </h2>
-      <p class="reveal text-lg max-w-[620px] leading-relaxed mb-16" style="color:#9a9aaa;">BelegNest creates digital order: automatic OCR text recognition, a structured archive with full-text search, and a warranty tracker with traffic light system that alerts you before deadlines expire.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
-          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#8f6a3f;" data-target="6" data-separator=",">0</span>
-          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Extended receipt attributes</span>
-          <span class="block text-xs" style="color:#7a7a88;">Payment method, tax rate, tags, receipt number, store address, currency</span>
-        </div>
-        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
-          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#8f6a3f;" data-target="3" data-suffix="x">0</span>
-          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Warranty status levels</span>
-          <span class="block text-xs" style="color:#7a7a88;">Warranty tracker with traffic light system: green, yellow, red</span>
-        </div>
-        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(143,106,63,.07);border:1px solid rgba(143,106,63,.25);">
-          <span class="block text-xs font-semibold mb-2 uppercase tracking-[0.12em]" style="color:#a07843;">Free &amp;</span>
-          <span class="block stat-value font-black leading-none mb-1 tabular-nums" style="color:#8f6a3f;" data-target="1" data-suffix=" Pro">0</span>
-          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">Plan tiers</span>
-          <span class="block text-xs" style="color:#7a7a88;">Free/Pro tier system with configurable limits</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 md:py-32 section-dark" id="warum" style="background:#050508;">
+  <!-- ====== FEATURES ====== -->
+  <section id="features" class="py-24 md:py-32">
     <div class="max-w-[1100px] mx-auto px-5 md:px-10">
       <div class="text-center mb-14">
-        <h2 class="reveal text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-5" style="color:#f0f0f2;">Why BelegNest</h2>
-        <p class="reveal text-lg max-w-[650px] mx-auto leading-relaxed" style="color:#9999a1;">Four clear advantages for digital receipt archiving with OCR, warranty tracker and structured management.</p>
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Everything you need</h2>
+        <p class="reveal text-lg max-w-[650px] mx-auto" style="color:var(--color-muted);">Six smart features that keep your receipts safe, sorted and always findable.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
-          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Automatic OCR text recognition</h3>
-          <p style="color:#9a9aaa;">Tesseract.js recognises text on receipts directly in the browser with automatic data extraction &mdash; no external cloud needed.</p>
-        </div>
-        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
-          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Warranty tracker with traffic light system</h3>
-          <p style="color:#9a9aaa;">Green, yellow, red: BelegNest alerts you in time when warranties are about to expire &mdash; never miss a deadline again.</p>
-        </div>
-        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
-          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Archive with full-text search</h3>
-          <p style="color:#9a9aaa;">Full-text search, category, date and amount filters plus sorting make any receipt findable in seconds.</p>
-        </div>
-        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
-          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Camera, upload &amp; export</h3>
-          <p style="color:#9a9aaa;">Receipt capture via camera or file upload with auto-compression. ZIP export (photos &amp; CSV) and JSON backup/import.</p>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(13,150,104,.08);color:#0D9668;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Snap your receipt</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Simply point your camera at a receipt or upload a photo. Done.</p>
+        </article>
+
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(16,185,129,.08);color:#10B981;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Find instantly</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Full-text search, categories, date filters. Find any receipt in seconds.</p>
+        </article>
+
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(217,119,6,.08);color:#D97706;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Warranty tracker</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Traffic light system: Green = active, Yellow = expiring soon, Red = expired. Never miss a warranty again.</p>
+        </article>
+
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(124,58,237,.08);color:#7C3AED;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Export &amp; backup</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">ZIP export for your accountant. JSON backup for your safety. Your data belongs to you.</p>
+        </article>
+
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(22,163,74,.08);color:#16A34A;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 19h1c1.84-3.18 5.37-5 9-5h1V8z"/><path d="M11 1c1.33 1.33 2 4 2 8"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">100% private</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">OCR runs entirely in your browser. No cloud, no tracking. Your receipts stay your business.</p>
+        </article>
+
+        <article class="reveal feature-card">
+          <div class="feature-icon" style="background:rgba(8,145,178,.08);color:#0891B2;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="6" y2="14"/><line x1="10" y1="10" x2="10" y2="14"/><line x1="14" y1="10" x2="14" y2="14"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Secure backup</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Automatic cloud backup in the EU. Import and export anytime.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="funktionen" class="py-24 section-alt">
+  <!-- ====== SUSTAINABILITY ====== -->
+  <section id="nachhaltigkeit" class="py-24 md:py-32 sustainability-section">
     <div class="max-w-[1100px] mx-auto px-5 md:px-10">
       <div class="text-center mb-14">
-        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Core features for digital order</h2>
-        <p class="reveal text-lg max-w-[680px] mx-auto" style="color:var(--color-muted);">All features from the BelegNest feature set in a clean, everyday web application.</p>
+        <div class="reveal inline-flex items-center justify-center w-20 h-20 rounded-full mb-5" style="background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.20);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Good for you. Good for the planet.</h2>
+        <p class="reveal text-lg max-w-[650px] mx-auto" style="color:var(--color-muted);">Less paper, fewer chemicals, less waste.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">Receipt capture via camera &amp; upload</h3>
-          <p style="color:var(--color-muted);">Receipt capture via camera or file upload with automatic auto-compression for optimal file size.</p>
-        </article>
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">Automatic OCR text recognition</h3>
-          <p style="color:var(--color-muted);">Automatic OCR text recognition via Tesseract.js with data extraction directly in the browser &mdash; fully local, no external API.</p>
-        </article>
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">Archive with full-text search &amp; filters</h3>
-          <p style="color:var(--color-muted);">Receipt archive with full-text search, category, date and amount filters, and flexible sorting.</p>
-        </article>
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">Warranty tracker with traffic light system</h3>
-          <p style="color:var(--color-muted);">Warranty tracker with traffic light system (green/yellow/red) automatically detects expiring warranty deadlines.</p>
-        </article>
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">ZIP export &amp; JSON backup</h3>
-          <p style="color:var(--color-muted);">ZIP export (photos and CSV) as well as JSON backup and JSON import for complete data backup and portability.</p>
-        </article>
-        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
-          <h3 class="text-xl font-bold mb-3">User authentication &amp; Free/Pro</h3>
-          <p style="color:var(--color-muted);">Email/password authentication with role-based access (user/admin) and Free/Pro tier system with configurable limits.</p>
-        </article>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="reveal sustainability-card">
+          <div class="sustainability-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round"><path d="M17 10V4h-2v4H9V4H7v6l5 6 5-6z"/><path d="M7 10l-2 8h14l-2-8"/><line x1="12" y1="16" x2="12" y2="22"/><path d="M8 22h8"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Less paper</h3>
+          <p style="color:var(--color-muted);">
+            <strong class="stat-value" style="color:#0D9668;font-size:1.8rem;" data-target="5700" data-suffix=" M" data-separator=",">0</strong>
+            <br><span style="font-size:.9rem;">receipts printed per year in Germany alone. Every digital receipt saves paper.</span>
+          </p>
+        </div>
+
+        <div class="reveal sustainability-card">
+          <div class="sustainability-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0D9668" stroke-width="2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">No chemicals</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Thermal paper contains BPA and other harmful chemicals. Digital means: no toxins.</p>
+        </div>
+
+        <div class="reveal sustainability-card">
+          <div class="sustainability-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 19h1c1.84-3.18 5.37-5 9-5h1V8z"/><path d="M11 1c1.33 1.33 2 4 2 8"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Archive sustainably</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;">Thermal paper fades within a few years. Digitally archived receipts stay readable forever.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 section-dark" id="process" style="background:#090a0e;">
-    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
-      <div class="text-center mb-10">
-        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">From receipt to digital archive</h2>
-        <p class="reveal text-lg max-w-[760px] mx-auto" style="color:#a2a2ab;">BelegNest turns a paper receipt into a searchable, secure digital record. This process shows the real journey from capture to structured archive.</p>
-      </div>
-      <div class="reveal process-shell" id="processFlow">
-        <div class="process-track">
-          <div class="process-track__bar" id="processFlowBar"></div>
-          <div class="process-track__dot" id="processFlowDot"></div>
-        </div>
-        <div class="process-grid">
-          <article class="process-step process-step--active" tabindex="0">
-            <div class="process-step__index">01</div>
-            <h3 class="process-step__title">Capture receipt</h3>
-            <p class="process-step__text">Capture a receipt via camera or file upload. Auto-compression optimises file size automatically.</p>
-            <p class="process-step__hint">Click to expand</p>
-            <div class="process-step__more">Receipt capture via camera or file upload with automatic auto-compression directly in the browser.</div>
-          </article>
-          <article class="process-step" tabindex="0">
-            <div class="process-step__index">02</div>
-            <h3 class="process-step__title">OCR &amp; data extraction</h3>
-            <p class="process-step__text">Tesseract.js recognises text and extracts data automatically &mdash; browser-based, no cloud required.</p>
-            <p class="process-step__hint">Click to expand</p>
-            <div class="process-step__more">Automatic OCR text recognition with data extraction. Extended attributes: payment method, tax rate, tags, receipt number, store address, currency.</div>
-          </article>
-          <article class="process-step" tabindex="0">
-            <div class="process-step__index">03</div>
-            <h3 class="process-step__title">Archive &amp; search</h3>
-            <p class="process-step__text">Receipt archive with full-text search, category, date and amount filters plus sorting.</p>
-            <p class="process-step__hint">Click to expand</p>
-            <div class="process-step__more">Full-text search, category, date and amount filters, and flexible sorting make any receipt findable in seconds.</div>
-          </article>
-          <article class="process-step" tabindex="0">
-            <div class="process-step__index">04</div>
-            <h3 class="process-step__title">Export &amp; backup</h3>
-            <p class="process-step__text">ZIP export (photos and CSV), JSON backup and JSON import for complete data backup.</p>
-            <p class="process-step__hint">Click to expand</p>
-            <div class="process-step__more">ZIP export with photos and CSV, plus JSON backup and JSON import &mdash; all data exportable and importable at any time.</div>
-          </article>
-        </div>
-        <p class="process-target"><strong>Outcome:</strong> Every receipt digitally captured, searchably archived, and exportable at any time.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 section-dark" style="background:#0f1117;" id="ablauf">
+  <!-- ====== HOW IT WORKS ====== -->
+  <section class="py-24 md:py-32 section-dark" id="so-gehts">
     <div class="max-w-[1000px] mx-auto px-5 md:px-10">
-      <div class="text-center mb-12">
-        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">How it works in 3 steps</h2>
+      <div class="text-center mb-14">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">How it works</h2>
+        <p class="reveal text-lg max-w-[600px] mx-auto" style="color:#9a9aaa;">Three steps to your digital receipt archive.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
-          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Step 1</span>
-          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Create an account</h3>
-          <p style="color:#9a9aaa;">Register via email and password. User authentication with role-based access (user/admin).</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="reveal step-card">
+          <div class="step-number">1</div>
+          <h3 class="text-xl font-bold mt-3 mb-2" style="color:#f0f0f2;">Snap a photo</h3>
+          <p style="color:#9a9aaa;">Point your camera at a receipt or upload a photo. OCR recognizes the text automatically.</p>
         </div>
-        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
-          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Step 2</span>
-          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Capture &amp; archive receipts</h3>
-          <p style="color:#9a9aaa;">Scan a receipt via camera or upload. OCR text recognition extracts data automatically into your archive.</p>
+        <div class="reveal step-card">
+          <div class="step-number">2</div>
+          <h3 class="text-xl font-bold mt-3 mb-2" style="color:#f0f0f2;">Store</h3>
+          <p style="color:#9a9aaa;">Your receipt is automatically categorized and securely saved in your personal archive.</p>
         </div>
-        <div class="reveal p-7 rounded-2xl" style="background:rgba(143,106,63,.08);border:1px solid rgba(143,106,63,.25);">
-          <span class="text-sm font-bold uppercase tracking-wider" style="color:#a07843;">Step 3</span>
-          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Search, export, back up</h3>
-          <p style="color:#9a9aaa;">Full-text search and filters make any receipt findable. ZIP export and JSON backup keep all data secure.</p>
+        <div class="reveal step-card">
+          <div class="step-number">3</div>
+          <h3 class="text-xl font-bold mt-3 mb-2" style="color:#f0f0f2;">Rediscover</h3>
+          <p style="color:#9a9aaa;">Search, filter, export. Every receipt is back in seconds, whether for warranty, tax or returns.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ====== STATS ====== -->
+  <section class="py-20 section-dark" style="background:#050508;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="reveal">
+          <span class="block stat-value font-black mb-1" style="color:#14B8A6;" data-target="6">0</span>
+          <span class="block text-sm" style="color:#78716C;">Receipt attributes</span>
+        </div>
+        <div class="reveal">
+          <span class="block stat-value font-black mb-1" style="color:#34D399;" data-target="3" data-suffix=" colours">0</span>
+          <span class="block text-sm" style="color:#78716C;">Warranty traffic light</span>
+        </div>
+        <div class="reveal">
+          <span class="block stat-value font-black mb-1" style="color:#14B8A6;" data-target="2">0</span>
+          <span class="block text-sm" style="color:#78716C;">Languages (DE/EN)</span>
+        </div>
+        <div class="reveal">
+          <span class="block stat-value font-black mb-1" style="color:#34D399;">0 &euro;</span>
+          <span class="block text-sm" style="color:#78716C;">Free to start</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
   <section class="py-24" id="faq">
     <div class="max-w-[900px] mx-auto px-5 md:px-10">
       <div class="text-center mb-10">
@@ -337,69 +321,119 @@
       </div>
       <div id="faqList" class="rounded-2xl bg-white border overflow-hidden">
         <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
-            <span class="font-semibold">How does the OCR text recognition work?</span>
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
+            <span class="font-semibold">Is BelegNest really free?</span>
             <span class="faq-question__icon relative w-5 h-5"></span>
           </button>
-          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BelegNest uses Tesseract.js for browser-based OCR text recognition with automatic data extraction &mdash; fully local, no external cloud API required.</div>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Yes! The free plan is permanently free with 50 receipts and 100 MB storage. For unlimited receipts, ZIP export, warranty tracker and more, there is the Pro plan from &euro;4.99/month.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
+            <span class="font-semibold">How secure is my data?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Very secure. OCR runs entirely in your browser. Your receipts never leave your device for text recognition. Storage is encrypted in the EU.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
             <span class="font-semibold">What is the warranty tracker?</span>
             <span class="faq-question__icon relative w-5 h-5"></span>
           </button>
-          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">The warranty tracker uses a traffic light system (green, yellow, red) to show the status of each warranty and alerts you in time before deadlines expire.</div>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">The warranty tracker shows you the status of every warranty with a traffic light system: Green = active, Yellow = expiring soon, Red = expired. Never miss a warranty deadline again.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
-            <span class="font-semibold">What export options are available?</span>
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
+            <span class="font-semibold">Can I export my receipts?</span>
             <span class="faq-question__icon relative w-5 h-5"></span>
           </button>
-          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BelegNest offers ZIP export (photos and CSV) as well as JSON backup and JSON import for complete data backup and portability.</div>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Yes! With the Pro plan you can export all receipts as ZIP (photos + CSV). Perfect for your accountant. JSON backup and import are also available.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
-            <span class="font-semibold">Is there a free plan?</span>
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
+            <span class="font-semibold">Is BelegNest good for the environment?</span>
             <span class="faq-question__icon relative w-5 h-5"></span>
           </button>
-          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Yes. BelegNest offers a Free/Pro tier system with configurable limits for different usage requirements.</div>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Yes! 5.7 billion receipts are printed every year in Germany alone, on thermal paper coated with chemicals. Every digital receipt counts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between" aria-expanded="false">
+            <span class="font-semibold">Which languages are supported?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BelegNest is fully bilingual: German and English. You can switch languages anytime.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 section-dark" id="final-cta" style="background:#050508;">
+  <!-- ====== FINAL CTA ====== -->
+  <section class="py-24 md:py-32 cta-section" id="final-cta">
     <div class="max-w-[900px] mx-auto px-5 md:px-10 text-center">
-      <h2 class="reveal text-3xl md:text-5xl font-black leading-[1.1] mb-5" style="color:#f0f0f2;">Your safe place for every receipt. Start now.</h2>
-      <p class="reveal text-lg max-w-[620px] mx-auto mb-9" style="color:#9a9aaa;">Digital receipt archiving with OCR, warranty tracker and full-text search. Free &amp; Pro.</p>
+      <h2 class="reveal text-3xl md:text-5xl font-black leading-[1.1] mb-3">
+        BelegNest.<br>
+        <span class="gradient-text">Snap. Store. Rediscover.</span>
+      </h2>
+      <p class="reveal text-lg max-w-[620px] mx-auto mb-9" style="color:#78716C;">Your safe place for every receipt. Start for free, upgrade anytime.</p>
       <div class="reveal flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;background:#8f6a3f;color:#fff;font-weight:700;border-radius:12px;text-decoration:none;">Start BelegNest</a>
+        <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer" class="btn-primary btn-primary--large">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Capture Receipt Now
+        </a>
+        <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Open Receipt Archive
+        </a>
       </div>
     </div>
   </section>
 
-  <footer style="background:#050508;color:#8e8e93;padding:32px 20px 40px;text-align:center;border-top:1px solid rgba(255,255,255,.08);">
-    <div class="flex items-center justify-center gap-2 mb-2">
-      <img src="app-icon-light.svg" alt="BelegNest" style="width:18px;height:18px;opacity:.85;">
-      <span style="font-weight:700;color:#f0f0f2;">BelegNest</span>
-    </div>
-    <p style="font-size:.9rem;">Your safe place for every receipt &mdash; WAMOCON GmbH</p>
-    <div style="margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:.85rem;">
-      <a href="https://belegbox.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:#c7ac82;text-decoration:none;">Open app</a>
-      <a href="impressum.html" style="color:#c7ac82;text-decoration:none;">Imprint</a>
-      <a href="agb.html" style="color:#c7ac82;text-decoration:none;">Terms</a>
-      <a href="datenschutz.html" style="color:#c7ac82;text-decoration:none;">Privacy</a>
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="flex items-center gap-2 mb-3">
+            <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#0D9668"/><path d="M14 38c0 0 6-8 18-8s18 8 18 8" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none"/><rect x="24" y="18" width="16" height="22" rx="2" fill="white" opacity=".9"/><line x1="28" y1="24" x2="36" y2="24" stroke="#0D9668" stroke-width="1.5"/><line x1="28" y1="28" x2="36" y2="28" stroke="#0D9668" stroke-width="1.5"/><line x1="28" y1="32" x2="33" y2="32" stroke="#0D9668" stroke-width="1.5"/><path d="M44 16c2-3 6-2 6 1s-4 4-6 6c-2-2-6-3-6-6s4-4 6-1z" fill="#34D399"/></svg>
+            <span style="font-weight:800;color:#f0f0f2;font-size:1.1rem;">BelegNest</span>
+          </div>
+          <p style="font-size:.85rem;color:#78716C;max-width:280px;">Your safe place for every receipt. Private, secure and sustainable.</p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4 class="footer-heading">Product</h4>
+            <a href="https://belegnest.de" target="_blank" rel="noopener noreferrer">Open app</a>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h4 class="footer-heading">Legal</h4>
+            <a href="impressum.html">Imprint</a>
+            <a href="datenschutz.html">Privacy</a>
+            <a href="agb.html">Terms</a>
+          </div>
+          <div>
+            <h4 class="footer-heading">Contact</h4>
+            <a href="mailto:belegnest@wamocon.com">belegnest@wamocon.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WAMOCON GmbH &bull; Mergenthalerallee 79-81, 65760 Eschborn</p>
+        <p>HRB 123666 &bull; VAT: DE344930486 &bull; CEO: Dipl.-Ing. Waleri Moretz</p>
+      </div>
     </div>
   </footer>
 
+  <!-- Back to Top -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
+  <!-- Cookie Banner -->
   <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
     <div class="cookie-banner__inner">
-      <h3 style="font-weight:700;font-size:1.05rem;margin-bottom:.45rem;">Local storage notice</h3>
-      <p style="font-size:.92rem;line-height:1.6;color:#4d4d55;">BelegNest uses local browser storage and Supabase (EU) for data storage. There is no ad tracker in the application.</p>
+      <h3 style="font-weight:700;font-size:1.05rem;margin-bottom:.45rem;">Cookie notice</h3>
+      <p style="font-size:.92rem;line-height:1.6;color:#4d4d55;">BelegNest uses local browser storage for functionality. Your data is stored securely in the EU. No ad tracking.</p>
       <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:1rem;flex-wrap:wrap;">
         <button class="cookie-banner__btn cookie-banner__btn--reject" data-cookie-action="reject">Close</button>
         <button class="cookie-banner__btn cookie-banner__btn--accept" data-cookie-action="accept">Understood</button>
@@ -410,6 +444,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-

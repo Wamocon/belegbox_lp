@@ -1,12 +1,11 @@
 /* ==============================================
-   Ustafix Landing Page : Immersive Interactions
+   BelegNest Landing Page – Interactions
    Vanilla JS, no dependencies
    ============================================== */
 (function () {
     'use strict';
     var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
     var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
-    var clamp = function (v, min, max) { return Math.min(Math.max(v, min), max); };
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ── 1. REVEAL ON SCROLL ── */
@@ -46,6 +45,7 @@
     }
     function animateCounter(el) {
         var target = parseInt(el.dataset.target, 10);
+        if (isNaN(target)) return;
         var suffix = el.dataset.suffix || '', prefix = el.dataset.prefix || '', sep = el.dataset.separator || '';
         var duration = 1600, start = null;
         if (el._raf) cancelAnimationFrame(el._raf);
@@ -66,7 +66,9 @@
         var counters = $$('[data-target]');
         if (!counters.length) return;
         counters.forEach(function (el) {
-            var finalText = (el.dataset.prefix || '') + formatNumber(parseInt(el.dataset.target, 10), el.dataset.separator || '') + (el.dataset.suffix || '');
+            var target = parseInt(el.dataset.target, 10);
+            if (isNaN(target)) return;
+            var finalText = (el.dataset.prefix || '') + formatNumber(target, el.dataset.separator || '') + (el.dataset.suffix || '');
             var clone = el.cloneNode(false);
             clone.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
             clone.textContent = finalText;
@@ -79,7 +81,7 @@
         var obs = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) { e.isIntersecting ? animateCounter(e.target) : resetCounter(e.target); });
         }, { threshold: 0.4 });
-        counters.forEach(function (el) { obs.observe(el); });
+        counters.forEach(function (el) { if (!isNaN(parseInt(el.dataset.target, 10))) obs.observe(el); });
     }
 
     /* ── 3. NAVBAR ── */
@@ -145,93 +147,7 @@
         });
     }
 
-    /* ── 6. ROADMAP ── */
-    function initRoadmap() {
-        var timeline = document.getElementById('roadmapTimeline');
-        var svg = document.getElementById('rmSvg');
-        var pathBg = document.getElementById('rmPathBg');
-        var pathFill = document.getElementById('rmPathFill');
-        var glow = document.getElementById('rmGlow');
-        if (!timeline || !svg || !pathBg || !pathFill) return;
-        var rows = $$('.rm__row', timeline);
-        var ticking = false, totalLen = 0;
-
-        function buildSnakePath() {
-            var lineEl = document.getElementById('rmLine');
-            if (!lineEl) return;
-            var h = timeline.offsetHeight;
-            var isMobile = window.innerWidth < 768;
-            var w, cx, d;
-            if (isMobile) { w = 40; cx = 20; lineEl.style.left = '0'; lineEl.style.transform = 'none'; }
-            else { w = 120; cx = w / 2; lineEl.style.left = ''; lineEl.style.transform = ''; }
-            lineEl.style.width = w + 'px';
-            svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-            svg.setAttribute('width', w);
-            svg.setAttribute('height', h);
-            if (isMobile) { d = 'M ' + cx + ' 0 L ' + cx + ' ' + h; }
-            else {
-                var amp = 40, segH = 260, segs = Math.ceil(h / segH);
-                d = 'M ' + cx + ' 0';
-                for (var i = 0; i < segs; i++) {
-                    var y0 = i * segH, yEnd = Math.min(y0 + segH, h), dir = (i % 2 === 0) ? 1 : -1;
-                    d += ' C ' + (cx + amp * dir) + ' ' + (y0 + segH * .25) + ', ' + (cx + amp * dir) + ' ' + (y0 + segH * .75) + ', ' + cx + ' ' + yEnd;
-                }
-            }
-            pathBg.setAttribute('d', d); pathFill.setAttribute('d', d);
-            totalLen = pathFill.getTotalLength();
-            pathFill.style.strokeDasharray = totalLen;
-            pathFill.style.strokeDashoffset = totalLen;
-            if (totalLen > 0) {
-                var tRect = timeline.getBoundingClientRect();
-                rows.forEach(function (row) {
-                    var dot = row.querySelector('.rm__dot');
-                    if (!dot) return;
-                    var dRect = dot.getBoundingClientRect();
-                    var dotY = dRect.top + dRect.height / 2 - tRect.top;
-                    var lo = 0, hi = totalLen;
-                    for (var iter = 0; iter < 50; iter++) {
-                        var mid = (lo + hi) / 2;
-                        if (pathFill.getPointAtLength(mid).y < dotY) lo = mid; else hi = mid;
-                    }
-                    row.dataset.rmProgress = ((lo + hi) / 2 / totalLen).toFixed(4);
-                });
-            }
-        }
-        buildSnakePath();
-        window.addEventListener('resize', buildSnakePath);
-
-        function onScroll() {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(function () {
-                var rect = timeline.getBoundingClientRect();
-                var vh = window.innerHeight;
-                var range = rect.bottom - vh * .25 - (rect.top - vh * .65);
-                var progress = range > 0 ? clamp(-(rect.top - vh * .65) / range, 0, 1) : 0;
-                if (totalLen) pathFill.style.strokeDashoffset = totalLen * (1 - progress);
-                if (glow && totalLen) {
-                    var pt = pathFill.getPointAtLength(progress * totalLen);
-                    glow.style.top = pt.y + 'px'; glow.style.left = pt.x + 'px';
-                    glow.style.opacity = (progress > .01 && progress < .92) ? '1' : '0';
-                }
-                rows.forEach(function (row) {
-                    var rp = parseFloat(row.dataset.rmProgress) || 0;
-                    var active = progress >= rp;
-                    var dot = row.querySelector('.rm__dot'), card = row.querySelector('.rm__card'), branch = row.querySelector('.rm__branch');
-                    if (dot) dot.classList.toggle('rm__dot--active', active);
-                    if (card) card.classList.toggle('rm__card--active', active);
-                    if (branch) branch.classList.toggle('rm__branch--active', active);
-                });
-                var end = document.getElementById('rmEndDot');
-                if (end) end.classList.toggle('rm__end-marker--active', progress >= .92);
-                ticking = false;
-            });
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
-    /* ── 7. HERO PARTICLES ── */
+    /* ── 6. HERO PARTICLES (Teal/Green theme) ── */
     function initParticles() {
         if (prefersReduced) return;
         var canvas = document.getElementById('heroParticles');
@@ -240,7 +156,7 @@
         var ctx = canvas.getContext('2d');
         var particles = [], mouse = { x: -9999, y: -9999 };
         var isMobile = window.innerWidth < 768;
-        var count = isMobile ? 160 : 300;
+        var count = isMobile ? 140 : 260;
         var running = true, time = 0;
 
         function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; }
@@ -248,13 +164,14 @@
             var angle = Math.random() * Math.PI * 2;
             var speed = Math.random() * .5 + .1;
             var size = Math.random() * 2.5 + .5;
+            var type = Math.random();
             return {
                 x: Math.random() * canvas.width, y: Math.random() * canvas.height,
                 vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
                 size: size, baseSize: size,
                 opacity: Math.random() * .5 + .1, baseOpacity: Math.random() * .5 + .1,
                 pulse: Math.random() * Math.PI * 2, pulseSpeed: Math.random() * .02 + .005,
-                hue: Math.random() < .7 ? 30 : Math.random() * 40
+                type: type < .5 ? 'teal' : (type < .8 ? 'emerald' : 'leaf')
             };
         }
         function seed() {
@@ -289,10 +206,11 @@
                 if (p.x > canvas.width + 20) p.x = -20;
                 if (p.y < -20) p.y = canvas.height + 20;
                 if (p.y > canvas.height + 20) p.y = -20;
-                var warm = p.hue < 20;
-                var r = warm ? 143 : 126;
-                var g = warm ? 106 : 153;
-                var b = warm ? 63 : 140;
+                // Teal/Green color palette
+                var r, g, b;
+                if (p.type === 'teal') { r = 13; g = 150; b = 104; }
+                else if (p.type === 'emerald') { r = 16; g = 185; b = 129; }
+                else { r = 52; g = 211; b = 153; }
                 if (p.size > 2.5) {
                     var gl = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4);
                     gl.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + (p.opacity * .25) + ')');
@@ -314,7 +232,7 @@
         animate();
     }
 
-    /* ── 8. MOBILE MENU ── */
+    /* ── 7. MOBILE MENU ── */
     function initMobileMenu() {
         var btn = document.getElementById('navHamburger');
         var menu = document.getElementById('mobileMenu');
@@ -326,7 +244,7 @@
         window.closeMobileMenu = close;
     }
 
-    /* ── 9. BACK TO TOP ── */
+    /* ── 8. BACK TO TOP ── */
     function initBackToTop() {
         var btn = document.getElementById('backToTop');
         if (!btn) return;
@@ -336,137 +254,20 @@
         btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
 
-    /* ── 10. COOKIE CONSENT ── */
+    /* ── 9. COOKIE CONSENT ── */
     function initCookie() {
         var banner = document.getElementById('cookieBanner');
-        if (!banner || localStorage.getItem('uf_cookie')) return;
+        if (!banner || localStorage.getItem('bn_cookie')) return;
         setTimeout(function () {
             banner.classList.add('cookie-banner--visible');
             document.body.classList.add('cookie-open');
         }, 2000);
         $$('[data-cookie-action]', banner).forEach(function (btn) {
             btn.addEventListener('click', function () {
-                localStorage.setItem('uf_cookie', btn.dataset.cookieAction);
+                localStorage.setItem('bn_cookie', btn.dataset.cookieAction);
                 banner.classList.remove('cookie-banner--visible');
                 document.body.classList.remove('cookie-open');
             });
-        });
-    }
-
-    /* ── 11. PROCESS FLOW ── */
-    function initProcessFlow() {
-        var root = document.getElementById('processFlow');
-        if (!root) return;
-        var steps = $$('.process-step', root);
-        var bar = document.getElementById('processFlowBar');
-        var dot = document.getElementById('processFlowDot');
-        if (!steps.length || !bar || !dot) return;
-
-        var idx = 0;
-        var timer = null;
-
-        function activate(i) {
-            idx = i;
-            steps.forEach(function (el, n) {
-                el.classList.toggle('process-step--active', n === i);
-            });
-            var ratio = (i + 1) / steps.length;
-            bar.style.transform = 'scaleX(' + ratio.toFixed(3) + ')';
-            dot.style.left = (ratio * 100) + '%';
-        }
-
-        function setOpen(i, force) {
-            steps.forEach(function (el, n) {
-                var isTarget = n === i;
-                var open = typeof force === 'boolean' ? (isTarget && force) : (isTarget ? !el.classList.contains('process-step--open') : false);
-                el.classList.toggle('process-step--open', open);
-            });
-        }
-
-        function startCycle() {
-            if (timer) return;
-            timer = setInterval(function () {
-                activate((idx + 1) % steps.length);
-            }, 1850);
-        }
-
-        function stopCycle() {
-            if (!timer) return;
-            clearInterval(timer);
-            timer = null;
-        }
-
-        steps.forEach(function (step, i) {
-            step.setAttribute('role', 'button');
-            step.setAttribute('aria-expanded', 'false');
-            step.addEventListener('click', function () {
-                stopCycle();
-                activate(i);
-                var wasOpen = step.classList.contains('process-step--open');
-                setOpen(i, !wasOpen);
-                step.setAttribute('aria-expanded', String(!wasOpen));
-                steps.forEach(function (other, n) {
-                    if (n !== i) other.setAttribute('aria-expanded', 'false');
-                });
-            });
-            step.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    step.click();
-                }
-            });
-        });
-
-        var obs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) startCycle();
-                else stopCycle();
-            });
-        }, { threshold: 0.35 });
-
-        obs.observe(root);
-        activate(0);
-        setOpen(0, true);
-        steps[0].setAttribute('aria-expanded', 'true');
-    }
-
-    /* ── 12. HERO VIDEO CONTROLS ── */
-    function initHeroVideo() {
-        var container = document.getElementById('heroVideoContainer');
-        var video = document.getElementById('heroVideo');
-        var playBtn = document.getElementById('heroPlayBtn');
-        var muteBtn = document.getElementById('heroMuteBtn');
-        var replayOverlay = document.getElementById('heroReplayOverlay');
-        var replayBtn = document.getElementById('heroReplayBtn');
-        if (!video || !container) return;
-
-        container.setAttribute('data-playing', 'true');
-        container.setAttribute('data-muted', 'true');
-
-        video.addEventListener('play', function () {
-            container.setAttribute('data-playing', 'true');
-            if (replayOverlay) { replayOverlay.classList.remove('hero-replay-overlay--visible'); replayOverlay.setAttribute('aria-hidden', 'true'); }
-        });
-        video.addEventListener('pause', function () { container.setAttribute('data-playing', 'false'); });
-        video.addEventListener('ended', function () {
-            if (replayOverlay) { replayOverlay.classList.add('hero-replay-overlay--visible'); replayOverlay.setAttribute('aria-hidden', 'false'); }
-        });
-
-        playBtn.addEventListener('click', function () {
-            if (video.paused) { video.play(); } else { video.pause(); }
-        });
-
-        if (replayBtn) {
-            replayBtn.addEventListener('click', function () {
-                video.currentTime = 0;
-                video.play();
-                if (replayOverlay) { replayOverlay.classList.remove('hero-replay-overlay--visible'); replayOverlay.setAttribute('aria-hidden', 'true'); }
-            });
-        }
-
-        muteBtn.addEventListener('click', function () {
-            video.muted = !video.muted;
-            container.setAttribute('data-muted', video.muted ? 'true' : 'false');
         });
     }
 
@@ -477,12 +278,9 @@
         initNavbar();
         initSmoothScroll();
         initFAQ();
-        initRoadmap();
         initParticles();
         initMobileMenu();
         initBackToTop();
         initCookie();
-        initProcessFlow();
-        initHeroVideo();
     });
 })();
